@@ -32,7 +32,16 @@ export async function getMoviesFromAllSources(
 
 //Deduplicate function
 
-//Paginate
+export function sortMovies(movies: Film[], sortField: 'title' | 'releaseYear', sortDirection: 'ASC' | 'DESC'): Film[] {
+    return movies.sort((a, b) => {
+      if (sortField === 'title') {
+        return sortDirection === 'ASC' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+      } else {
+        return sortDirection === 'ASC' ? a.releaseYear - b.releaseYear : b.releaseYear - a.releaseYear;
+      }
+    });
+}
+
 export function paginateResults(movies: Film[], currentPage: number, pageSize: number): Film[]{
     //TODO: Account for edge cases
     const startPage = (currentPage - 1)* pageSize;
