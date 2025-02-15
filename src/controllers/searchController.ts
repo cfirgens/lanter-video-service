@@ -1,1 +1,0 @@
-// search movies function - calls the fetch and deduplicates then paginates and returns

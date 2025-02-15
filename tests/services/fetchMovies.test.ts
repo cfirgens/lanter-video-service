@@ -1,8 +1,8 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { fetchMovies, getMoviesFromAllSources, deduplicateMovies, sortMovies, paginateResults } from "../src/services/fetchMovies";
-import { VHS_API, DVD_API, PROJECTOR_API } from "../src/consts/apiUrls";
-import { ApiFilmSearch, Film } from "../src/types";
+import { fetchMovies, getMoviesFromAllSources, deduplicateMovies, sortMovies, paginateResults } from "../../src/services/movieService";
+import { VHS_API, DVD_API, PROJECTOR_API } from "../../src/consts/apiUrls";
+import { ApiFilmSearch, Film } from "../../src/types";
 
 const mockAxios = new MockAdapter(axios);
 

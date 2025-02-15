@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getMoviesFromAllSources, paginateResults, deduplicateMovies } from '../services/fetchMovies';
+import { getMoviesFromAllSources, paginateResults, deduplicateMovies } from '../services/movieService';
 import { SearchRequest } from '../types';
 
 export async function searchMoviesController(req: Request, res: Response) {
