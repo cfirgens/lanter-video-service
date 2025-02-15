@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ApiFilmSearch, Film } from '../types';
 import { VHS_API, DVD_API, PROJECTOR_API } from '../consts/apiUrls';
 
-export async function fetchMovies(apiUrl: string, params: ApiFilmSearch): Promise<Film[]> {
+async function fetchMovies(apiUrl: string, params: ApiFilmSearch): Promise<Film[]> {
     //Nice to have: Cache data
     try {
         const response = await axios.post<Film[]>(apiUrl,params);
@@ -33,3 +33,8 @@ export async function getMoviesFromAllSources(
 //Deduplicate function
 
 //Paginate
+export function paginateResults(movies: Film[], currentPage: number, pageSize: number): Film[]{
+    //TODO: Account for edge cases
+    const startPage = (currentPage - 1)* pageSize;
+    return movies.slice(startPage, startPage + pageSize);
+}
