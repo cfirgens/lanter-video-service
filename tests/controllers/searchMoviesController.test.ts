@@ -66,7 +66,6 @@ describe("searchMoviesController", () => {
     expect(deduplicateMovies).toHaveBeenCalledWith(mockMovies);
     expect(paginateResults).toHaveBeenCalledWith(deduplicatedMovies, 1, 2);
 
-    // ✅ Expect correct JSON response
     expect(jsonMock).toHaveBeenCalledWith({
       currentPage: 1,
       pageSize: 2,
